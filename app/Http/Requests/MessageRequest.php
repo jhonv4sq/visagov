@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateBook extends FormRequest
+class MessageRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,8 @@ class UpdateBook extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|string|unique:books,title,'.$this->book->id,
-            'author' => 'required|string',
+            'email' => 'required|email',
+            'text' => 'required|min:10|max:255'
         ];
     }
 }

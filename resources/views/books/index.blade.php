@@ -4,7 +4,7 @@
     <div class="container">
         <h1>Libros</h1>
 
-        <a href="{{ route('books.create') }}" class="btn btn-primary">Crear</a>
+        <a href="{{ route('books.create') }}" class="btn btn-primary my-3">Crear</a>
 
         <table class="table">
             <thead>
