@@ -32,7 +32,7 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav">
                   <li class="nav-item"><a class="nav-link" aria-current="page" href="{{ route('books.index') }}">libros</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#">contacto</a></li>
+                  <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">contacto</a></li>
 
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -44,8 +44,39 @@
                     </ul>
                   </li>
                 </ul>
+
+                <ul class="navbar-nav ms-auto">
+                  @guest
+                  <li class="nav-item">
+                      <a class="nav-link" href="{{ route('login') }}">login</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="{{ route('register') }}">registrarse</a>
+                  </li>
+                  @endguest
+                  @auth
+                  <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ Auth::user()->name }}
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                         document.getElementById('logout-form').submit();">
+                            cerrar sesión
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </div>
+                  </li>
+                  @endauth
+                </ul>
               </div>
-              
+
+
             </div>
           </nav>
 
