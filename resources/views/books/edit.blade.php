@@ -11,9 +11,9 @@
                     </div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('books.store') }}">
+                        <form method="POST" action="{{ route('books.update', $book->id) }}">
                             @csrf
-
+                            @method('PUT')
                             <div class="mb-3">
                                 <label for="title" class="mb-2 fw-bold">titulo</label>
                                 <div>

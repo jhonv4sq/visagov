@@ -47,6 +47,8 @@ class BookController extends Controller
             'title' => $request['title'],
             'author' => $request['author'],
         ]);
+
+        return redirect()->route('books.index');
     }
 
     public function destroy(Book $book)
