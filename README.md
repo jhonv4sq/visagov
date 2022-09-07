@@ -23,7 +23,10 @@ Hacer que la aplicación pueda cambiar de ingles a español.
 * Controllers.
 * Models.
 * Routes.
+<<<<<<< HEAD
 [![Captura-de-pantalla-2022-09-08-001232.png](https://i.postimg.cc/J43JTd9m/Captura-de-pantalla-2022-09-08-001232.png)](https://postimg.cc/1ftfXMmY)
+=======
+>>>>>>> fbb3170a0ab2f87d4374a1c910d8a91b688221d5
 
 ## Resultado final 
 [![Captura-de-pantalla-2022-09-08-000355.png](https://i.postimg.cc/bwd5ppyq/Captura-de-pantalla-2022-09-08-000355.png)](https://postimg.cc/v4FhvRxK)
