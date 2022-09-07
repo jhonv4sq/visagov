@@ -20,7 +20,36 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+
+        <nav class="navbar navbar-expand-sm navbar-light bg-light text-capitalize shadow-sm">
+            <div class="container">
+              <a class="navbar-brand" href="{{ route('home') }}">visago</a>
+
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                  <li class="nav-item"><a class="nav-link" aria-current="page" href="{{ route('books.index') }}">libros</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#">contacto</a></li>
+
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      idiomas
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="#">español</a></li>
+                      <li><a class="dropdown-item" href="#">ingles</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              
+            </div>
+          </nav>
+
+        {{-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -72,7 +101,7 @@
                     </ul>
                 </div>
             </div>
-        </nav>
+        </nav> --}}
 
         <main class="py-4">
             @yield('content')
