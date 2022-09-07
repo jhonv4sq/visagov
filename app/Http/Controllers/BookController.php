@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\BookRequest;
+use App\Http\Requests\CreateBook;
+use App\Http\Requests\UpdateBook;
 use App\Models\Book;
 use Illuminate\Http\Request;
 
@@ -20,7 +21,7 @@ class BookController extends Controller
         return view('books.create');
     }
 
-    public function store(BookRequest $request)
+    public function store(CreateBook $request)
     {
         $data = $request->validated();
         
@@ -41,7 +42,7 @@ class BookController extends Controller
         return view('books.edit', compact('book'));
     }
 
-    public function update(BookRequest $request, Book $book)
+    public function update(UpdateBook $request, Book $book)
     {
         $data = $request->validated();
 
