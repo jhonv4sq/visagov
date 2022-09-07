@@ -2,38 +2,38 @@
 
 @section('content')
     <div class="container">
-        <h1>Libros</h1>
+        <h1 class="text-capitalize">{{ __('books') }}</h1>
 
-        <a href="{{ route('books.create') }}" class="btn btn-primary my-3">Crear</a>
+        <a href="{{ route('books.create') }}" class="btn btn-primary my-3 text-capitalize">{{ __('create') }}</a>
 
         <table class="table">
-            <thead>
+            <thead class="text-capitalize">
                 <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Titulo</th>
-                  <th scope="col">Autor</th>
-                  <th></th>
+                    <th scope="col">#</th>
+                    <th scope="col">{{ __('title') }}</th>
+                    <th scope="col">{{ __('author') }}</th>
+                    <th></th>
                 </tr>
-              </thead>
-              <tbody>
-                @foreach ($books as $book)
+            </thead>
+            <tbody>
+            @foreach ($books as $book)
                 <tr>
                     <th scope="row">{{ $book->id }}</th>
-                    <td class="align-items-center">{{ $book->title }}</td>
-                    <td>{{ $book->author }}</td>
-                    <td class="d-flex">
-                        <a href="{{ route('books.edit', $book->id) }}" class="btn btn-primary me-1" role="button">Editar</a>
+                    <td><a href="{{ route('books.show', $book->id) }}" class="nav-link">{{ $book->title }}</a></td>
+                    <td><a href="{{ route('books.show', $book->id) }}" class="nav-link">{{ $book->author }}</a></td>
+                    <td class="d-flex text-capitalize">
+                        <a href="{{ route('books.edit', $book->id) }}" class="btn btn-primary me-1" role="button">{{ __('edit') }}</a>
                         <form method="POST" action="{{ route('books.destroy', $book->id) }}">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger">
-                                Eliminar
+                            <button type="submit" class="btn btn-danger text-capitalize">
+                                {{ __('delete') }}
                             </button>
                         </form>
                     </td>
                 </tr>
-                @endforeach
-              </tbody>
+            @endforeach
+            </tbody>
         </table>
 
     </div>

@@ -31,16 +31,23 @@
 
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav">
-                  <li class="nav-item"><a class="nav-link" aria-current="page" href="{{ route('books.index') }}">libros</a></li>
-                  <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">contacto</a></li>
+                  <li class="nav-item"><a class="nav-link" aria-current="page" href="{{ route('books.index') }}">{{ __('books') }}</a></li>
+                  <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">{{ __('contact') }}</a></li>
 
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      idiomas
+                        {{ __('language') }}
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="#">español</a></li>
-                      <li><a class="dropdown-item" href="#">ingles</a></li>
+                      {{-- <li><a class="dropdown-item" href="{{ LaravelLocalization::getLocalizedURL('es') }}">español</a></li>
+                      <li><a class="dropdown-item" href="{{ LaravelLocalization::getLocalizedURL('en') }}">ingles</a></li> --}}
+                        @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                        <li>
+                          <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                              {{ $properties['native'] }}
+                          </a>
+                        </li>
+                        @endforeach
                     </ul>
                   </li>
                 </ul>
@@ -48,10 +55,10 @@
                 <ul class="navbar-nav ms-auto">
                   @guest
                   <li class="nav-item">
-                      <a class="nav-link" href="{{ route('login') }}">login</a>
+                      <a class="nav-link" href="{{ route('login') }}">{{ __('login') }}</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="{{ route('register') }}">registrarse</a>
+                      <a class="nav-link" href="{{ route('register') }}">{{ __('register') }}</a>
                   </li>
                   @endguest
                   @auth
@@ -64,7 +71,7 @@
                         <a class="dropdown-item" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">
-                            cerrar sesión
+                            {{ __('logout') }}
                         </a>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
