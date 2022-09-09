@@ -35,9 +35,9 @@
                   <li class="nav-item"><a class="nav-link {{ (request()->is(['en/contact','es/contact'])) ? 'active' : ''}}" href="{{ route('contact') }}">{{ __('contact') }}</a></li>
                         
                   <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         {{ __('language') }}
-                    </a>
+                    </button>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                       {{-- <li><a class="dropdown-item" href="{{ LaravelLocalization::getLocalizedURL('es') }}">español</a></li>
                       <li><a class="dropdown-item" href="{{ LaravelLocalization::getLocalizedURL('en') }}">ingles</a></li> --}}
