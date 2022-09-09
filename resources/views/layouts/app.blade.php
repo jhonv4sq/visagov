@@ -35,19 +35,19 @@
                   <li class="nav-item"><a class="nav-link {{ (request()->is(['en/contact','es/contact'])) ? 'active' : ''}}" href="{{ route('contact') }}">{{ __('contact') }}</a></li>
                         
                   <li class="nav-item dropdown">
-                    <button class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         {{ __('language') }}
-                    </button>
+                    </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      {{-- <li><a class="dropdown-item" href="{{ LaravelLocalization::getLocalizedURL('es') }}">español</a></li>
-                      <li><a class="dropdown-item" href="{{ LaravelLocalization::getLocalizedURL('en') }}">ingles</a></li> --}}
-                        @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                      <li><a class="dropdown-item" href="{{ LaravelLocalization::getLocalizedURL('en') }}">english</a></li>
+                      <li><a class="dropdown-item" href="{{ LaravelLocalization::getLocalizedURL('es') }}">español</a></li>
+                        {{-- @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
                         <li>
                           <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
                               {{ $properties['native'] }}
                           </a>
                         </li>
-                        @endforeach
+                        @endforeach --}}
                     </ul>
                   </li>
                 </ul>
