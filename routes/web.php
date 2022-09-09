@@ -34,6 +34,8 @@ Route::group([
     Route::get('/contact', [MessageController::class, 'create'])->name('contact');
 
     Route::post('/message', [MessageController::class, 'store'])->name('message.store');
+    
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
 });
 
 
