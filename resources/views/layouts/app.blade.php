@@ -31,8 +31,8 @@
 
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav">
-                  <li class="nav-item"><a class="nav-link {{ (request()->is(['en/books','es/books'])) ? 'active' : ''}}"  href="{{ route('books.index') }}">{{ __('books') }}</a></li>
-                  <li class="nav-item"><a class="nav-link {{ (request()->is(['en/contact','es/contact'])) ? 'active' : ''}}" href="{{ route('contact') }}">{{ __('contact') }}</a></li>
+                  <li class="nav-item"><a class="nav-link {{ active([route('books.index'), route('books.create')]) }}"  href="{{ route('books.index') }}">{{ __('books') }}</a></li>
+                  <li class="nav-item"><a class="nav-link {{ active(route('contact')) }}" href="{{ route('contact') }}">{{ __('contact') }}</a></li>
                         
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -55,10 +55,10 @@
                 <ul class="navbar-nav ms-auto">
                   @guest
                   <li class="nav-item">
-                      <a class="nav-link {{ (request()->is(['en/login','es/login'])) ? 'active' : ''}}" href="{{ route('login') }}">{{ __('login') }}</a>
+                      <a class="nav-link {{ active(route('login')) }}" href="{{ route('login') }}">{{ __('login') }}</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link {{ (request()->is(['en/register','es/register'])) ? 'active' : ''}}" href="{{ route('register') }}">{{ __('register') }}</a>
+                      <a class="nav-link {{ active(route('register')) }}" href="{{ route('register') }}">{{ __('register') }}</a>
                   </li>
                   @endguest
                   @auth

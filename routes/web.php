@@ -29,7 +29,9 @@ Route::group([
 
     Route::resource('books', BookController::class);
 
-    Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::get('/', function () {
+        return redirect()->route('home');
+    });
 
     Route::get('/contact', [MessageController::class, 'create'])->name('contact');
 
